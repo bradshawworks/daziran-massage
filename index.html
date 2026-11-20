@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daziran Massage — Therapeutic & Restorative Massage Therapy</title>
+  <meta name="description" content="Daziran Massage provides customized, therapeutic massage therapy for pain relief, muscle recovery, and deep relaxation. Book your session online." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-linen: #faf7f4;
+      --bg-cream: #f4ede7;
+      --bg-card: rgba(255, 253, 251, 0.92);
+
+      /* Botanical & Floral Color Palette */
+      --sage-light: #e4ede4;
+      --sage: #738f75;
+      --sage-dark: #466149;
+      --forest: #223325;
+
+      --blush-soft: #f9e6ea;
+      --blush-petal: #eab8c5;
+      --rose-dust: #c96f85;
+      --rose-deep: #9e4b60;
+      --lavender-soft: #ede6f5;
+      --lavender-muted: #9381a8;
+      --marigold-soft: #f7ebd7;
+      --marigold: #c99249;
+
+      --text-main: #2b352d;
+      --text-muted: #5a665c;
+      --border-soft: rgba(115, 143, 117, 0.2);
+      --border-rose: rgba(201, 111, 133, 0.24);
+
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 30px;
+      --shadow-soft: 0 14px 36px rgba(56, 42, 48, 0.07);
+      --shadow-petal: 0 16px 40px rgba(201, 111, 133, 0.14);
+
+      --font-serif: "Cormorant Garamond", Georgia, serif;
+      --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      color: var(--text-main);
+      background-color: var(--bg-linen);
+      background-image:
+        radial-gradient(circle at 6% 8%, rgba(234, 184, 197, 0.34) 0%, transparent 36%),
+        radial-gradient(circle at 92% 14%, rgba(237, 230, 245, 0.55) 0%, transparent 38%),
+        radial-gradient(circle at 85% 48%, rgba(228, 237, 228, 0.55) 0%, transparent 42%),
+        radial-gradient(circle at 12% 72%, rgba(247, 235, 215, 0.55) 0%, transparent 40%),
+        radial-gradient(circle at 55% 94%, rgba(234, 184, 197, 0.28) 0%, transparent 44%),
+        url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c96f85' stroke-opacity='0.07' stroke-width='1'%3E%3Cpath d='M60 22c6 12 18 18 30 18-12 6-18 18-18 30-6-12-18-18-30-18 12-6 18-18 18-30z'/%3E%3Ccircle cx='60' cy='52' r='3' fill='%23c99249' fill-opacity='0.09' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background-color: rgba(250, 247, 244, 0.85);
+      border-bottom: 1px solid var(--border-rose);
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--forest);
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 1.85rem;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--rose-deep);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.85rem 1.6rem;
+      border-radius: 999px;
+      font-family: var(--font-sans);
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--rose-dust) 0%, var(--rose-deep) 100%);
+      color: #ffffff;
+      box-shadow: 0 8px 20px rgba(158, 75, 96, 0.26);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(158, 75, 96, 0.34);
+    }
+
+    .btn-secondary {
+      background-color: rgba(255, 255, 255, 0.72);
+      color: var(--forest);
+      border: 1px solid var(--border-rose);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--blush-soft);
+      border-color: var(--rose-dust);
+    }
+
+    .header-cta {
+      padding: 0.62rem 1.2rem;
+      font-size: 0.85rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      padding: 3.5rem 0 4.25rem;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.95rem;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blush-soft), var(--lavender-soft));
+      color: var(--rose-deep);
+      border: 1px solid var(--border-rose);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.15rem;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      color: var(--forest);
+      margin: 0;
+      line-height: 1.14;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6.5vw, 3.95rem);
+      margin-bottom: 1.15rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--rose-deep);
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin: 0 0 1.85rem;
+      max-width: 54ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+
+    /* Showcase Card */
+    .botanical-card {
+      position: relative;
+      background:
+        radial-gradient(circle at 88% 15%, rgba(234, 184, 197, 0.52) 0%, transparent 48%),
+        radial-gradient(circle at 12% 88%, rgba(237, 230, 245, 0.65) 0%, transparent 50%),
+        linear-gradient(155deg, #fffaf8 0%, var(--sage-light) 100%);
+      border: 1px solid var(--border-rose);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 1.85rem;
+      box-shadow: var(--shadow-petal);
+      overflow: hidden;
+    }
+
+    .floral-bouquet {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 185px;
+      height: 185px;
+      pointer-events: none;
+    }
+
+    .quote-mark {
+      font-family: var(--font-serif);
+      font-size: 3.2rem;
+      line-height: 0.8;
+      color: var(--rose-dust);
+      margin-bottom: 0.45rem;
+    }
+
+    .botanical-card blockquote {
+      position: relative;
+      z-index: 1;
+      margin: 0 0 1.45rem;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.48rem;
+      line-height: 1.35;
+      color: var(--forest);
+      max-width: 26ch;
+    }
+
+    .pillars {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      padding-top: 1.15rem;
+      border-top: 1px solid var(--border-rose);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .pillars strong {
+      display: block;
+      color: var(--rose-deep);
+      font-size: 0.9rem;
+      margin-bottom: 0.15rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 4.25rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 60ch;
+      margin: 0 auto 2.75rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2.05rem, 4.5vw, 2.85rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    .floral-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem;
+      margin-top: 1.1rem;
+    }
+
+    .floral-divider::before,
+    .floral-divider::after {
+      content: "";
+      height: 1px;
+      width: 64px;
+      background: linear-gradient(90deg, transparent, var(--rose-dust), transparent);
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.45rem;
+    }
+
+    .service-card {
+      position: relative;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blush-petal), var(--sage));
+    }
+
+    .service-card:nth-child(2)::before {
+      background: linear-gradient(90deg, var(--sage), var(--marigold));
+    }
+
+    .service-card:nth-child(3)::before {
+      background: linear-gradient(90deg, var(--lavender-muted), var(--blush-petal));
+    }
+
+    .service-card:nth-child(4)::before {
+      background: linear-gradient(90deg, var(--marigold), var(--rose-dust));
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-rose);
+      box-shadow: var(--shadow-petal);
+    }
+
+    .service-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.6rem;
+    }
+
+    .duration-tag {
+      flex-shrink: 0;
+      background-color: var(--blush-soft);
+      color: var(--rose-deep);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.32rem 0.75rem;
+      border-radius: 999px;
+    }
+
+    .service-card:nth-child(2) .duration-tag {
+      background-color: var(--sage-light);
+      color: var(--sage-dark);
+    }
+
+    .service-card:nth-child(3) .duration-tag {
+      background-color: var(--lavender-soft);
+      color: #5e4c73;
+    }
+
+    .service-card:nth-child(4) .duration-tag {
+      background-color: var(--marigold-soft);
+      color: #8a5e22;
+    }
+
+    .service-card p {
+      margin: 0 0 1.35rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .service-link {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--rose-deep);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .service-link:hover {
+      color: var(--forest);
+      text-decoration: underline;
+    }
+
+    /* Approach / About Section */
+    .about-box {
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(255, 250, 247, 0.93) 0%, rgba(249, 230, 234, 0.88) 55%, rgba(228, 237, 228, 0.92) 100%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'%3E%3Cg fill='none'%3E%3Ccircle cx='490' cy='90' r='70' fill='%23eab8c5' fill-opacity='0.35'/%3E%3Ccircle cx='530' cy='150' r='55' fill='%239381a8' fill-opacity='0.25'/%3E%3Ccircle cx='440' cy='165' r='45' fill='%23c99249' fill-opacity='0.22'/%3E%3Cpath d='M380 390C410 270 460 190 560 110' stroke='%23738f75' stroke-width='4' stroke-opacity='0.35'/%3E%3Cellipse cx='445' cy='255' rx='36' ry='16' transform='rotate(-32 445 255)' fill='%23738f75' fill-opacity='0.28'/%3E%3Cellipse cx='495' cy='195' rx='38' ry='17' transform='rotate(-38 495 195)' fill='%23738f75' fill-opacity='0.28'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: cover;
+      background-position: right center;
+      border: 1px solid var(--border-rose);
+      border-radius: var(--radius-lg);
+      padding: 2.35rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: center;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .about-box h2 {
+      font-size: clamp(1.95rem, 4vw, 2.65rem);
+      margin-bottom: 0.9rem;
+    }
+
+    .about-box p {
+      margin: 0 0 1rem;
+      color: var(--text-muted);
+    }
+
+    .about-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0 0;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.94rem;
+      color: var(--forest);
+      font-weight: 500;
+    }
+
+    .petal-bullet {
+      width: 10px;
+      height: 10px;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      background: linear-gradient(135deg, var(--rose-dust), var(--marigold));
+      flex-shrink: 0;
+    }
+
+    .visit-card {
+      background-color: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-rose);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    /* Booking Section (#book) */
+    #book {
+      padding-top: 3.5rem;
+      padding-bottom: 4.75rem;
+    }
+
+    .booking-shell {
+      position: relative;
+      background:
+        radial-gradient(circle at 10% 15%, rgba(249, 230, 234, 0.75) 0%, transparent 45%),
+        radial-gradient(circle at 90% 85%, rgba(228, 237, 228, 0.75) 0%, transparent 45%),
+        #fffdfb;
+      border: 1px solid var(--border-rose);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 1.25rem;
+      box-shadow: var(--shadow-petal);
+      overflow: hidden;
+    }
+
+    .booking-intro {
+      text-align: center;
+      max-width: 56ch;
+      margin: 0 auto 2rem;
+    }
+
+    .booking-intro h2 {
+      font-size: clamp(2.05rem, 4.5vw, 2.8rem);
+      margin-bottom: 0.65rem;
+    }
+
+    .booking-intro p {
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    .square-widget-frame {
+      background-color: #ffffff;
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      min-height: 440px;
+      overflow-x: auto;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .booking-note {
+      text-align: center;
+      margin: 1.35rem auto 0;
+      max-width: 48ch;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(160deg, #223325 0%, #2f2830 100%);
+      color: rgba(250, 247, 244, 0.88);
+      padding: 3.25rem 0 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .footer-brand {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: #ffffff;
+      margin-bottom: 0.45rem;
+    }
+
+    .footer-grid p,
+    .footer-grid a {
+      font-size: 0.9rem;
+      color: rgba(250, 247, 244, 0.78);
+      margin: 0.25rem 0;
+    }
+
+    .footer-grid a:hover {
+      color: var(--blush-petal);
+      text-decoration: underline;
+    }
+
+    .footer-heading {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--blush-petal);
+      font-weight: 600;
+      margin-bottom: 0.65rem;
+    }
+
+    .footer-bottom {
+      padding-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: rgba(250, 247, 244, 0.65);
+    }
+
+    /* Tablet & Desktop Breakpoints */
+    @media (min-width: 640px) {
+      .container {
+        padding: 0 2rem;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-box {
+        padding: 2.85rem;
+      }
+
+      .booking-shell {
+        padding: 3rem 2.5rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1.4fr 1fr 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    @media (min-width: 860px) {
+      .nav-links {
+        display: flex;
+      }
+
+      .hero {
+        padding: 4.5rem 0 5rem;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 3rem;
+      }
+
+      .about-box {
+        grid-template-columns: 1.2fr 0.8fr;
+        padding: 3.35rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrap">
+      <a href="#" class="brand" aria-label="Daziran Massage Home">
+        <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="8.5" r="5.2" fill="#eab8c5" />
+          <circle cx="23.1" cy="13.7" r="5.2" fill="#d99ab0" />
+          <circle cx="20.4" cy="22" r="5.2" fill="#b7a4cc" />
+          <circle cx="11.6" cy="22" r="5.2" fill="#738f75" fill-opacity="0.8" />
+          <circle cx="8.9" cy="13.7" r="5.2" fill="#eab8c5" />
+          <circle cx="16" cy="16" r="3.6" fill="#c99249" />
+        </svg>
+        <span>Daziran Massage</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="#services">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#book">Book Session</a>
+      </nav>
+
+      <a href="#book" class="btn btn-primary header-cta">Book Now</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2c1.8 3.2 4.8 4.8 8 6-3.2 1.8-4.8 4.8-6 8-1.8-3.2-4.8-4.8-8-6 3.2-1.8 4.8-4.8 6-8z" />
+            </svg>
+            Therapeutic & Restorative Bodywork
+          </span>
+          <h1>Relieve tension, restore mobility, and <em>recover</em> well.</h1>
+          <p>
+            Welcome to Daziran Massage. Every session is tailored to ease chronic muscle tightness, improve circulation, and help your body move and rest more comfortably.
+          </p>
+          <div class="hero-actions">
+            <a href="#book" class="btn btn-primary">Schedule an Appointment</a>
+            <a href="#services" class="btn btn-secondary">View Massage Services</a>
+          </div>
+        </div>
+
+        <aside class="botanical-card" aria-label="Massage Philosophy">
+          <svg class="floral-bouquet" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+            <path d="M185 15C142 42 108 82 84 136" stroke="#466149" stroke-width="2.2" stroke-linecap="round" />
+            <path d="M165 10C138 22 115 44 96 74" stroke="#738f75" stroke-width="1.8" stroke-linecap="round" />
+            <ellipse cx="136" cy="52" rx="16" ry="7.5" transform="rotate(-30 136 52)" fill="#738f75" fill-opacity="0.55" />
+            <ellipse cx="110" cy="84" rx="17" ry="8" transform="rotate(-44 110 84)" fill="#738f75" fill-opacity="0.55" />
+            <ellipse cx="92" cy="116" rx="15" ry="7" transform="rotate(-55 92 116)" fill="#466149" fill-opacity="0.45" />
+            <circle cx="164" cy="34" r="14" fill="#eab8c5" fill-opacity="0.85" />
+            <circle cx="177" cy="43" r="13" fill="#d99ab0" fill-opacity="0.8" />
+            <circle cx="172" cy="57" r="13" fill="#eab8c5" fill-opacity="0.85" />
+            <circle cx="157" cy="56" r="13" fill="#c96f85" fill-opacity="0.65" />
+            <circle cx="153" cy="42" r="13" fill="#f3cbd6" fill-opacity="0.9" />
+            <circle cx="165" cy="46" r="6.5" fill="#c99249" />
+            <circle cx="122" cy="30" r="8" fill="#b7a4cc" fill-opacity="0.75" />
+            <circle cx="131" cy="24" r="7" fill="#9381a8" fill-opacity="0.65" />
+            <circle cx="127" cy="33" r="3.5" fill="#f7ebd7" />
+          </svg>
+
+          <div class="quote-mark">“</div>
+          <blockquote>
+            Thoughtful, unhurried bodywork gives overworked muscles the space they need to release and heal.
+          </blockquote>
+
+          <div class="pillars">
+            <div>
+              <strong>Focused</strong>
+              Targeted relief
+            </div>
+            <div>
+              <strong>Customized</strong>
+              Adapted pressure
+            </div>
+            <div>
+              <strong>Unhurried</strong>
+              Full session time
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>Massage Therapy Services</h2>
+          <p>
+            Each appointment begins with a brief consultation so pressure, techniques, and focus areas match what your body needs most.
+          </p>
+          <div class="floral-divider" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="6.2" r="3.6" fill="#eab8c5" />
+              <circle cx="17.5" cy="10.2" r="3.6" fill="#d99ab0" />
+              <circle cx="15.4" cy="16.7" r="3.6" fill="#b7a4cc" />
+              <circle cx="8.6" cy="16.7" r="3.6" fill="#738f75" fill-opacity="0.8" />
+              <circle cx="6.5" cy="10.2" r="3.6" fill="#eab8c5" />
+              <circle cx="12" cy="12" r="2.5" fill="#c99249" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div>
+              <div class="service-top">
+                <h3>Swedish Relaxation</h3>
+                <span class="duration-tag">60 / 90 min</span>
+              </div>
+              <p>
+                Long, rhythmic strokes and gentle kneading designed to reduce stress, encourage healthy circulation, and ease everyday muscular fatigue.
+              </p>
+            </div>
+            <a href="#book" class="service-link">Book Swedish Massage →</a>
+          </article>
+
+          <article class="service-card">
+            <div>
+              <div class="service-top">
+                <h3>Deep Tissue Therapy</h3>
+                <span class="duration-tag">60 / 90 min</span>
+              </div>
+              <p>
+                Slow, deliberate pressure targeting deeper muscle layers, stubborn knots, and chronic neck, shoulder, or lower-back tension.
+              </p>
+            </div>
+            <a href="#book" class="service-link">Book Deep Tissue →</a>
+          </article>
+
+          <article class="service-card">
+            <div>
+              <div class="service-top">
+                <h3>Hot Stone Massage</h3>
+                <span class="duration-tag">75 / 90 min</span>
+              </div>
+              <p>
+                Smooth, heated stones combined with therapeutic massage strokes to warm tight tissue, improve flexibility, and calm the nervous system.
+              </p>
+            </div>
+            <a href="#book" class="service-link">Book Hot Stone →</a>
+          </article>
+
+          <article class="service-card">
+            <div>
+              <div class="service-top">
+                <h3>Custom Integrative</h3>
+                <span class="duration-tag">60 / 90 / 120 min</span>
+              </div>
+              <p>
+                A personalized combination of relaxation and targeted therapeutic techniques built around your specific pain points and recovery goals.
+              </p>
+            </div>
+            <a href="#book" class="service-link">Book Custom Session →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approach / About Section -->
+    <section id="approach">
+      <div class="container">
+        <div class="about-box">
+          <div>
+            <span class="eyebrow">Our Approach</span>
+            <h2>Care tailored to how your body feels today</h2>
+            <p>
+              At Daziran Massage, no two sessions are identical. Whether you are dealing with posture strain from desk work, post-exercise soreness, or built-up stress, every treatment is paced around your comfort.
+            </p>
+            <p>
+              Clear communication before and during your massage ensures you always receive the right level of pressure and attention where it matters most.
+            </p>
+            <ul class="about-list">
+              <li><span class="petal-bullet" aria-hidden="true"></span>Customized pressure and problem-area focus</li>
+              <li><span class="petal-bullet" aria-hidden="true"></span>Clean, comfortable treatment room with warm linens</li>
+              <li><span class="petal-bullet" aria-hidden="true"></span>Simple online scheduling and instant confirmation</li>
+            </ul>
+          </div>
+
+          <div class="visit-card">
+            <h3 style="font-size: 1.7rem; margin-bottom: 0.7rem;">Preparing for Your Session</h3>
+            <p style="margin-bottom: 1.2rem; color: var(--text-muted); font-size: 0.94rem;">
+              Please arrive a few minutes early so we can review your goals, any areas of soreness, and your preferred pressure before starting.
+            </p>
+            <a href="#book" class="btn btn-primary" style="width: 100%;">View Open Times</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Section (#book) -->
+    <section id="book">
+      <div class="container">
+        <div class="booking-shell">
+          <div class="booking-intro">
+            <span class="eyebrow">Online Scheduling</span>
+            <h2>Book Your Session</h2>
+            <p>
+              Select your preferred massage type, session length, and appointment time below.
+            </p>
+          </div>
+
+          <div class="square-widget-frame">
+            <!-- Start Square Appointments Embed Code --><script src='https://app.squareup.com/appointments/buyer/widget/wtbvx0yzx89dzj/LSG85RSRPCS5A.js'></script><!-- End Square Appointments Embed Code -->
+          </div>
+
+          <p class="booking-note">
+            Questions about choosing the right session length or style? Reach out anytime using the contact details below.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Daziran Massage</div>
+          <p>Therapeutic & restorative massage therapy.</p>
+          <p>Focused pain relief, muscle recovery, and relaxation.</p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Hours & Location</div>
+          <p>By Appointment Only</p>
+          <p>Update studio address & hours here</p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Connect</div>
+          <p><a href="mailto:hello@daziranmassage.com">hello@daziranmassage.com</a></p>
+          <p><a href="#book">Book an Appointment</a></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> Daziran Massage. All rights reserved.</span>
+        <span>Professional Massage Therapy</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const yearEl = document.getElementById("year");
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+</html>
